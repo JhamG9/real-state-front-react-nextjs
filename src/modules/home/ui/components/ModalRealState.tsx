@@ -8,7 +8,6 @@ import {
     IconButton,
 } from "@mui/material";
 import {
-    BorderAll,
     Close as CloseIcon,
 } from "@mui/icons-material";
 import { ApiPropertyRepository } from "../../infrastructure/repositories/apiPropertyRepository";

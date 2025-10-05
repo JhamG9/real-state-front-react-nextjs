@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🏠 Portal de Propiedades
+Una app web para buscar y ver propiedades inmobiliarias. Creada con Next.js, React y Material-UI siguiendo una arquitectura hexagonal.
 
-## Getting Started
+## Instalación
 
-First, run the development server:
-
+1. **Clonar el proyecto**
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/JhamG9/real-state-front-react-nextjs.git
+cd real-state-front-react-nextjs
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Instalar dependencias**
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. **Ejecutar en desarrollo**
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Estructura del proyecto
+```
+src/
+├── app/                    # Páginas de Next.js
+├── modules/home/
+│   ├── domain/             # Lógica de negocio
+│   ├── infrastructure/     # Conexión con APIs
+│   └── ui/                 # Componentes visuales
+└── shared/                 # Utilidades compartidas
+```
 
-## Learn More
+## ¿Qué incluye?
+- Catálogo de propiedades con filtros en tiempo real
+- Galería de imágenes interactiva
+- Información detallada de cada propiedad
+- Diseño responsivo para móvil y desktop
+- Formularios manejados con React Hook Form
 
-To learn more about Next.js, take a look at the following resources:
+## Tecnologías
+- **Next.js** - Framework de React
+- **React** - Librería de UI
+- **Material-UI** - Componentes de diseño
+- **React Hook Form** - Manejo de formularios
+- **TypeScript** - Para tipado estático
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Requisitos
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Node.js (versión 18 o superior)
+- npm, yarn o pnpm
 
-## Deploy on Vercel
+## Scripts
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run dev      # Servidor de desarrollo
+npm run build    # Build para producción
+npm run start    # Servidor de producción
+npm run lint     # Revisar código
+```
