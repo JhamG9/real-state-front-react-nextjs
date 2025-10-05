@@ -2,7 +2,6 @@
 Una app web para buscar y ver propiedades inmobiliarias. Creada con Next.js, React y Material-UI siguiendo una arquitectura hexagonal.
 
 ## Instalación
-
 1. **Clonar el proyecto**
 ```bash
 git clone https://github.com/JhamG9/real-state-front-react-nextjs.git
