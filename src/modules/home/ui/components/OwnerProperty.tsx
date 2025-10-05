@@ -1,21 +1,13 @@
-import React from 'react'
+import React from 'react';
 import { Owner } from '../../domain/entities/property';
 import { Box, Button, Card, CardContent, Typography } from '@mui/material';
+import { formatDate } from '@/shared/utils';
 
 interface OwnerPropertyProps {
     owner: Owner;
 }
 
 export const OwnerProperty = ({ owner }: OwnerPropertyProps) => {
-
-    const formatDate = (date: Date) => {
-        return new Intl.DateTimeFormat('es-ES', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-        }).format(date);
-    };
-
     return (
         <Box sx={{ flex: 1 }}>
             <Card>

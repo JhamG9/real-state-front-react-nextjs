@@ -8,6 +8,7 @@ import {
     IconButton,
 } from "@mui/material";
 import {
+    BorderAll,
     Close as CloseIcon,
 } from "@mui/icons-material";
 import { ApiPropertyRepository } from "../../infrastructure/repositories/apiPropertyRepository";
@@ -31,10 +32,9 @@ const style = {
     width: { xs: '90%', md: 800 },
     maxHeight: '90vh',
     bgcolor: 'background.paper',
-    borderRadius: 2,
-    boxShadow: 24,
+    boxShadow: 34,
     overflow: 'auto',
-    p: 3
+    p: 3,
 };
 
 export const ModalRealState = ({ open, onClose, propertyId }: ModalRealStateProps) => {
@@ -42,8 +42,10 @@ export const ModalRealState = ({ open, onClose, propertyId }: ModalRealStateProp
     const [propertyImages, setPropertyImages] = useState<string[]>([]);
 
     useEffect(() => {
-        getDetailProperty(propertyId!);
-    }, []);
+        if (propertyId) {
+            getDetailProperty(propertyId);
+        }
+    }, [propertyId]);
 
     const getDetailProperty = async (id: string) => {
         const apiPropertyRepository = new ApiPropertyRepository();
@@ -54,7 +56,7 @@ export const ModalRealState = ({ open, onClose, propertyId }: ModalRealStateProp
 
     if (!property) {
         return (
-            <Modal open={open} onClose={onClose}>
+            <Modal open={open} onClose={onClose} sx={{ border: 0, borderRadius: '5px' }}>
                 <Box sx={style}>
                     <Typography variant="h6" component="h2" textAlign="center">
                         No hay detalles de la propiedad disponibles.

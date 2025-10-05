@@ -27,9 +27,9 @@ export default function HomePage() {
   }
 
   return (
-    <Box sx={{ padding: 4, maxWidth: 1200, margin: '0 auto' }}>
-      <Box sx={{ textAlign: "center", mb: 4 }}>
-        <Typography variant="h3" component="h1" gutterBottom>
+    <Box sx={{ padding: 4, maxWidth: 1200, margin: '0 auto', lineHeight: '20px' }}>
+      <Box sx={{ textAlign: "center", display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <Typography variant="h4" component="h1" gutterBottom>
           Vive el Lujo: Propiedades Exclusivas a tu Alcance
         </Typography>
         <Typography variant="h6" color="text.secondary">
@@ -59,9 +59,7 @@ export default function HomePage() {
       </Box>
 
       {isModalOpen && selectedPropertyId && (
-
         <ModalRealState open={isModalOpen} onClose={() => setIsModalOpen(false)} propertyId={selectedPropertyId} />
-
       )}
     </Box>
   );

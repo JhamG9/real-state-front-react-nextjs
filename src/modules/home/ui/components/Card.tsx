@@ -10,6 +10,7 @@ import {
 } from "@mui/material";
 import { LocationOn, CalendarToday, MoreVert } from "@mui/icons-material";
 import { Property } from "../../domain/entities/property";
+import { formatPrice } from "../../../../shared/utils";
 
 interface CardProps {
   property: Property;
@@ -17,15 +18,6 @@ interface CardProps {
 }
 
 export const Card: React.FC<CardProps> = ({ property, onClick }) => {
-  
-  const formatPrice = (price: number) => {
-    return new Intl.NumberFormat("es-CO", {
-      style: "currency",
-      currency: "COP",
-      minimumFractionDigits: 0,
-    }).format(price);
-  };
-
   return (
     <MuiCard
       sx={{

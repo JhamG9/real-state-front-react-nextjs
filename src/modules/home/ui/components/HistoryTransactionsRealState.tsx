@@ -1,31 +1,16 @@
+import React from 'react';
 import { Box, Card, CardContent, Typography } from '@mui/material';
-import React from 'react'
 import { PropertyTrace } from '../../domain/entities/property';
 import {
     CalendarToday as CalendarIcon,
 } from "@mui/icons-material";
+import { formatDate, formatPrice } from '../../../../shared/utils';
 
 interface HistoryTransactionsRealStateProps {
     transactions: PropertyTrace[];
 }
 
 export const HistoryTransactionsRealState = ({ transactions }: HistoryTransactionsRealStateProps) => {
-
-    const formatDate = (date: Date) => {
-        return new Intl.DateTimeFormat('es-ES', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-        }).format(date);
-    };
-
-    const formatCurrency = (amount: number | undefined) => {
-        return new Intl.NumberFormat('en-US', {
-            style: 'currency',
-            currency: 'USD'
-        }).format(amount || 0);
-    };
-
     return (
         <>
             <Typography variant="h6" component="h3" sx={{ mb: 2 }}>
@@ -46,10 +31,10 @@ export const HistoryTransactionsRealState = ({ transactions }: HistoryTransactio
                                     {trace.name}
                                 </Typography>
                                 <Typography variant="body2" sx={{ mb: 0.5 }}>
-                                    Valor: {formatCurrency(trace.value)}
+                                    Valor: {formatPrice(trace.value)}
                                 </Typography>
                                 <Typography variant="body2" color="text.secondary">
-                                    Impuesto: {formatCurrency(trace.tax)}
+                                    Impuesto: {formatPrice(trace.tax)}
                                 </Typography>
                             </CardContent>
                         </Card>

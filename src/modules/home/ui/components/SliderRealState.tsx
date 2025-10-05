@@ -1,5 +1,5 @@
-import { Box, IconButton } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { Box, IconButton } from '@mui/material';
 import {
     ArrowBackIos as ArrowBackIcon,
     ArrowForwardIos as ArrowForwardIcon,

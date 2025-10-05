@@ -1,23 +1,16 @@
-import React from 'react'
+import React from 'react';
 import { Property } from '../../domain/entities/property';
 import { Box, Card, CardContent, Typography } from '@mui/material';
 import {
     Home as HomeIcon,
 } from "@mui/icons-material";
+import { formatPrice } from '../../../../shared/utils';
 
 interface PropertyInformacionProps {
     property: Property;
 }
 
 export const PropertyInformation = ({ property }: PropertyInformacionProps) => {
-
-    const formatCurrency = (amount: number | undefined) => {
-        return new Intl.NumberFormat('en-US', {
-            style: 'currency',
-            currency: 'USD'
-        }).format(amount || 0);
-    };
-
     return (
         <Box sx={{ flex: 1 }}>
             <Card>
@@ -58,7 +51,7 @@ export const PropertyInformation = ({ property }: PropertyInformacionProps) => {
                                 Precio
                             </Typography>
                             <Typography variant="h5" sx={{ color: 'primary.main', fontWeight: 'bold' }}>
-                                {formatCurrency(property.price)}
+                                {formatPrice(property.price)}
                             </Typography>
                         </Box>
                     </Box>
