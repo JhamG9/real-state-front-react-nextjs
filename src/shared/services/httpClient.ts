@@ -24,10 +24,8 @@ class AxiosHttpClient implements HttpClient {
   }
 
   private setupInterceptors(): void {
-    // Request interceptor
     this.axiosInstance.interceptors.request.use(
       (config) => {
-        // Aquí puedes agregar tokens de autenticación, logging, etc.
         const token = typeof window !== 'undefined' ? localStorage.getItem('authToken') : null;
         if (token) {
           config.headers.Authorization = `Bearer ${token}`;
@@ -42,7 +40,6 @@ class AxiosHttpClient implements HttpClient {
       }
     );
 
-    // Response interceptor
     this.axiosInstance.interceptors.response.use(
       (response: AxiosResponse) => {
         console.log(`[HTTP RESPONSE] ${response.status} ${response.config.url}`);
@@ -51,9 +48,7 @@ class AxiosHttpClient implements HttpClient {
       (error) => {
         console.error('[HTTP RESPONSE ERROR]', error);
         
-        // Manejo global de errores
         if (error.response?.status === 401) {
-          // Redirect to login or refresh token
           if (typeof window !== 'undefined') {
             localStorage.removeItem('authToken');
             window.location.href = '/login';
