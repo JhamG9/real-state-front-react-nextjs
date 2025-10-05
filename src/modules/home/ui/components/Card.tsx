@@ -37,7 +37,6 @@ export const Card: React.FC<CardProps> = ({ property, onClick }) => {
         <CardMedia
           component="img"
           sx={{
-            height: 200,
             objectFit: "cover",
           }}
           image={property.images[0]}
