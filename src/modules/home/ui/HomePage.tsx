@@ -4,9 +4,12 @@ import { ApiPropertyRepository } from "../infrastructure/repositories/apiPropert
 import { Property } from "../domain/entities/property";
 import { Card } from "./components/Card";
 import { Box, Typography } from "@mui/material";
+import { ModalRealState } from "./components/ModalRealState";
 
 export default function HomePage() {
   const [properties, setProperties] = useState<Property[]>([]);
+  const [selectedPropertyId, setSelectedPropertyId] = useState<string | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     getProperties();
@@ -17,6 +20,11 @@ export default function HomePage() {
     const properties = await apiPropertyRepository.getProperties();
     setProperties(properties);
   };
+
+  const handleCardClick = (property: Property) => {
+    setSelectedPropertyId(property.idProperty);
+    setIsModalOpen(true);
+  }
 
   return (
     <Box sx={{ padding: 4, maxWidth: 1200, margin: '0 auto' }}>
@@ -46,9 +54,15 @@ export default function HomePage() {
         }}
       >
         {properties.map((property: Property) => (
-          <Card key={property.idProperty} property={property} />
+          <Card key={property.idProperty} property={property} onClick={() => handleCardClick(property)} />
         ))}
       </Box>
+
+      {isModalOpen && selectedPropertyId && (
+
+        <ModalRealState open={isModalOpen} onClose={() => setIsModalOpen(false)} propertyId={selectedPropertyId} />
+
+      )}
     </Box>
   );
 }

@@ -8,4 +8,8 @@ export class ApiPropertyRepository implements PropertyRepository {
   async getProperties(): Promise<Property[]> {
     return await this.httpClient.get<Property[]>("/api/property");
   }
+
+  async getPropertyById(id: string): Promise<Property | null> {
+    return await this.httpClient.get<Property | null>(`/api/property/${id}`);
+  }
 }
