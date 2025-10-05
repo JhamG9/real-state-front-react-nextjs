@@ -13,13 +13,13 @@ interface PropertyFiltersProps {
     propertiesCount: number;
 }
 
-export const PropertyFilters: React.FC<PropertyFiltersProps> = ({
+export const PropertyFilters = ({
     control,
     watchedValues,
     maxPrice,
     loading,
     propertiesCount
-}) => {
+}: PropertyFiltersProps) => {
     return (
         <Card sx={{ mt: 4, mb: 3 }}>
             <CardContent>
